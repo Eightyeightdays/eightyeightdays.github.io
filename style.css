@@ -1,0 +1,118 @@
+html, *, *:before, *:after {
+  box-sizing: border-box;
+  font-family: Rubik;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: rgb(212, 65, 65);
+}
+
+.ui{
+    /* background: rgb(76, 191, 236); */
+    width: 1000px;
+    height: 1000px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.link-container{
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.scroll-container{
+    /* background: gainsboro; */
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scroll-snap-type: y mandatory;
+    overflow-x: hidden;
+    scrollbar-width: thin;          
+  	scrollbar-color: gold black;  
+}
+
+.scroll-content{
+    height: 100%;
+    width: 100%;
+    flex: none;
+    background: gainsboro;
+    scroll-snap-align: center;
+    font-size: 20px;
+    padding: 1em;
+}
+
+.title-container{
+    padding: 0.5em;
+    background: white;
+    color: black;
+    width: 400px;
+    height: 135px;
+    font-size: 40px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0px 18px 20px -12px #272525;
+    position: relative;
+}
+
+.description{
+    padding: 0.5em;
+    background:white; 
+    color: black;
+    width: 400px;
+    height: 200px;
+    font-size: 30px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0px -18px 20px -12px #272525;
+}
+
+.button{
+    font-size: 20px;
+    /* padding: 1em; */
+    fill: rgb(212, 65, 65);
+    background: black;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+}
+.button:hover{
+    cursor: pointer;
+}
+
+.link-icon{
+    height: 4em;
+}
+
+.scroll-icon{
+    height: 1.5em;
+}
+
+img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
