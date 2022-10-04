@@ -4,28 +4,40 @@ const objects = [
         description: "Upload an image and specify grid dimensions to create and save a new image based on the original colour palette.",
         link1: "https://github.com/Eightyeightdays/random-grid-generator",
         link2: "https://eightyeightdays.github.io/random-grid-generator/",
-        colour: "#364cae"
+        colour: "#364cae",
+        images: [
+            "/assets/Grid Generator.png", "/assets/Grid Generator - Ipad.png", "/assets/grid(27).png" 
+        ]
     },
     {
         title: "VeryVegan",
         description: "A sample website for a company that proposes a unique restaurant dining experience.",
         link1: "https://github.com/Eightyeightdays/VeryVegan",
         link2: "https://eightyeightdays.github.io/VeryVegan/",
-        colour: "#659246"
+        colour: "#659246",
+        images: [
+            "/assets/VeryVegan.png", "/assets/VeryVegan - 2.png", "/assets/VeryVegan - 3.png"
+        ]
     },
     {
         title: "Lister",
         description: "A Firefox extension that allow users to create and share anonymous YouTube playlists without needing an account.",
         link1: "https://github.com/Eightyeightdays/lister",
         link2: "",
-        colour: "gold"
+        colour: "gold",
+        images: [
+            "/assets/Lister - 1.png", "/assets/Lister - 2.png", "/assets/Lister - 3.png"
+        ]
     },
     {
         title: "The Bonehead Social Network",
         description: "A full-stack social media application for sharing images and text.",
         link1: "https://github.com/Eightyeightdays/bsm",
         link2: "https://bonehead-social-media-app.vercel.app/",
-        colour: "#ffd7d7"
+        colour: "#ffd7d7",
+        images: [
+            "/assets/BSM (1).png", "/assets/BSM (2).png", "/assets/BSM (3).png"
+        ]
     }
 ];
 
@@ -63,6 +75,7 @@ function scroll(index){
         direction = "backwards"
     }
 
+    getImages(count)
     displayButtons()
 
     let id = `scroll-content-${count}`;
@@ -123,8 +136,35 @@ function displayButtons(){
     }
 }
 
+function getImages(count){
+    if(count === 2){
+        document.getElementById("modal").style.flexDirection = "column"
+    }else{
+        document.getElementById("modal").style.flexDirection = "row"
+    }
+    let images = objects[count].images;
+    let nodes = document.querySelectorAll(".modal-image")
+    nodes.forEach((node, index) => {
+        node.src = images[index]
+    })
+}
+
+function displayModal(){
+    document.getElementById("modal").style.display = "flex";
+    document.getElementById("modal").style.animationPlayState = "running"
+    document.getElementById("main-container").style.display = "none"
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display = "none"
+    document.getElementById("main-container").style.display = "flex"
+}
+
+document.querySelectorAll(".scroll-image").forEach(item=>{item.addEventListener("click", displayModal)})
+document.getElementById("modal-button").addEventListener("click", closeModal)
 
 scrollButton.addEventListener("click", ()=>{scroll(count+1)})
 scrollButton2.addEventListener("click", ()=>{scroll(count-1)})
 
 document.addEventListener("load", showDetails(objects[0]))
+document.addEventListener("load", getImages(0))

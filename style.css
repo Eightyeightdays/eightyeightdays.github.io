@@ -29,10 +29,11 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     overflow: hidden;
     padding: 5em;
     border-radius: 20px;
-    margin-top: 3em;
+    margin-top: 1em;
 }
 
 .link-container{
@@ -109,7 +110,7 @@ body{
     height: 1.5em;
 }
 
-img{
+.scroll-image{
     object-fit: cover;
     height: 100%;
     width: 100%;
@@ -143,4 +144,50 @@ img{
 .scroll-icon{
     height: 3em;
     fill: gainsboro;
+}
+.scroll-image:hover{
+    cursor: pointer;
+}
+
+.modal{
+    background: black;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    border-radius: 10px;
+    position: absolute;
+    top: 2em;
+    z-index: 1;
+    width: calc(100vw - 4em);
+    height: calc(100vh - 6em);
+    animation: open 0.3s cubic-bezier(.68,.22,.93,1.48) forwards paused;
+    overflow: hidden;
+}
+
+@keyframes open {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+.modal-image{
+    object-fit: cover;
+    height: 100%;
+}
+
+.modal-button{
+    background: red;
+    padding: 0.5em;
+    font-size: 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+}
+
+.modal-button:hover{
+    cursor: pointer;
+    color: red;
+    background: white;
 }
