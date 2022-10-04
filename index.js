@@ -26,7 +26,7 @@ const objects = [
         link2: "",
         colour: "gold",
         images: [
-            "/assets/Lister - 1.png", "/assets/Lister - 2.png", "/assets/Lister - 3.png"
+            "/assets/Lister - 4.png", "/assets/Lister - 2.png", "/assets/Lister - 3.png"
         ]
     },
     {
@@ -122,6 +122,7 @@ function scroll(index){
 
 const scrollButton = document.getElementById("scroll-forwards")
 const scrollButton2 = document.getElementById("scroll-backwards")
+const modal = document.getElementById("modal")
 
 function displayButtons(){
     if(count === 0){
@@ -138,9 +139,9 @@ function displayButtons(){
 
 function getImages(count){
     if(count === 2){
-        document.getElementById("modal").style.flexDirection = "column"
+        modal.style.flexDirection = "column"
     }else{
-        document.getElementById("modal").style.flexDirection = "row"
+        modal.style.flexDirection = "row"
     }
     let images = objects[count].images;
     let nodes = document.querySelectorAll(".modal-image")
@@ -150,13 +151,13 @@ function getImages(count){
 }
 
 function displayModal(){
-    document.getElementById("modal").style.display = "flex";
-    document.getElementById("modal").style.animationPlayState = "running"
+    modal.style.display = "flex";
+    modal.style.animationPlayState = "running"
     document.getElementById("main-container").style.display = "none"
 }
 
 function closeModal(){
-    document.getElementById("modal").style.display = "none"
+    modal.style.display = "none"
     document.getElementById("main-container").style.display = "flex"
 }
 
