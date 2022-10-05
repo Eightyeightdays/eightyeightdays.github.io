@@ -146,13 +146,18 @@ function displayModal(){
     currentModal.style.display = "flex";
     currentModal.style.animationPlayState = "running"
     document.getElementById("main-container").style.display = "none"
+    document.getElementById("sidebar").style.display = "none"
 }
 
 function closeModal(){
     let currentModal = document.querySelectorAll(".modal")[count]
     currentModal.style.display = "none"
     document.getElementById("main-container").style.display = "flex"
+    document.getElementById("sidebar").style.display = "block"
 }
+
+document.getElementById("contact-link").textContent = "Contact"
+document.getElementById("contact-link").href= "mailto: x@eightyeightdays.com"
 
 document.querySelectorAll(".scroll-image").forEach(item=>{item.addEventListener("click", displayModal)})
 document.querySelectorAll(".modal-button").forEach(item=>{item.addEventListener("click", closeModal)})
