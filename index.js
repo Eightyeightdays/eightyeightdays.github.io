@@ -75,7 +75,6 @@ function scroll(index){
         direction = "backwards"
     }
 
-    getImages(count)
     displayButtons()
 
     let id = `scroll-content-${count}`;
@@ -122,7 +121,6 @@ function scroll(index){
 
 const scrollButton = document.getElementById("scroll-forwards")
 const scrollButton2 = document.getElementById("scroll-backwards")
-const modal = document.getElementById("modal")
 
 function displayButtons(){
     if(count === 0){
@@ -137,35 +135,30 @@ function displayButtons(){
     }
 }
 
-function getImages(count){
-    if(count === 2){
-        modal.style.flexDirection = "column"
-    }else{
-        modal.style.flexDirection = "row"
-    }
-    let images = objects[count].images;
-    let nodes = document.querySelectorAll(".modal-image")
-    nodes.forEach((node, index) => {
-        node.src = images[index]
-    })
-}
-
 function displayModal(){
-    modal.style.display = "flex";
-    modal.style.animationPlayState = "running"
+    let currentModal = document.querySelectorAll(".modal")[count]
+    
+    if(count === 2){
+        currentModal.style.flexDirection = "column"
+    }else{
+        currentModal.style.flexDirection = "row"
+    }
+    currentModal.style.display = "flex";
+    currentModal.style.animationPlayState = "running"
     document.getElementById("main-container").style.display = "none"
 }
 
 function closeModal(){
-    modal.style.display = "none"
+    let currentModal = document.querySelectorAll(".modal")[count]
+    currentModal.style.display = "none"
     document.getElementById("main-container").style.display = "flex"
 }
 
 document.querySelectorAll(".scroll-image").forEach(item=>{item.addEventListener("click", displayModal)})
-document.getElementById("modal-button").addEventListener("click", closeModal)
+document.querySelectorAll(".modal-button").forEach(item=>{item.addEventListener("click", closeModal)})
 
 scrollButton.addEventListener("click", ()=>{scroll(count+1)})
 scrollButton2.addEventListener("click", ()=>{scroll(count-1)})
 
 document.addEventListener("load", showDetails(objects[0]))
-document.addEventListener("load", getImages(0))
+
