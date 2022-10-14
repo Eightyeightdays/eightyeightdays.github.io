@@ -153,7 +153,7 @@ function closeModal(){
     let currentModal = document.querySelectorAll(".modal")[count]
     currentModal.style.display = "none"
     document.getElementById("main-container").style.display = "flex"
-    document.getElementById("sidebar").style.display = "block"
+    document.getElementById("sidebar").style.display = "flex"
 }
 
 document.getElementById("contact-link").textContent = "Contact"
